@@ -38,15 +38,20 @@ export default function Home() {
   // Retrive data from local api in a useeffect to prevent hydration errors
   useEffect(() => {
 
+    console.log(localStorage.getItem('users'))
+    
+
     // check if there is any existed users array fisrt
     if (localStorage.getItem('users')) {
+
 
       //if existed added in users react state
       setUsers(JSON.parse(localStorage.getItem('users')))
     } else {
 
       //if null initiat it with just an empty array
-      setUsers([])
+      setUsers(localStorage.setItem('users',JSON.stringify([])))
+
     }
 
   }, [])
@@ -65,8 +70,11 @@ export default function Home() {
     setUsers(pervUSers => [user, ...pervUSers]);
 
     // then set it to the local to be persisted
-    const newUsers = [...users, user]
-    localStorage.setItem('users', JSON.stringify(newUsers))
+    if( Array.isArray(users)){
+      const newUsers = [...users, user]
+      localStorage.setItem('users', JSON.stringify(newUsers))
+    }
+
   }
 
   // Update users data 

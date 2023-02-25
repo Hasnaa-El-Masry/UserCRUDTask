@@ -29,9 +29,7 @@ const Tbody = ({ data, columns, onDeleteClick, onEdit, getSelectedRows }) => {
         }
 
     }
-
-    console.log(selectedRows)
-
+    
     useEffect(() => {
 
         getSelectedRows(selectedRows)

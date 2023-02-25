@@ -7,14 +7,17 @@ const TableHeader = ({ data, headers, value, onSearch, selectedRows }) => {
 
     useEffect(() => {
 
-        if (selectedRows.length > 0) {
+        if (data) {
+            
+            if (selectedRows.length > 0) {
 
-            setExportedData(selectedRows)
+                setExportedData(selectedRows)
 
-        } else {
+            } else {
 
-            setExportedData(data)
+                setExportedData(data)
 
+            }
         }
 
     }, [data, selectedRows])
