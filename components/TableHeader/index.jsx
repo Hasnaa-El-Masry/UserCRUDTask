@@ -21,9 +21,9 @@ const TableHeader = ({ data, headers, value, onSearch, selectedRows }) => {
 
     return (
         <div className='table_actions d-flex justify-center'>
-            <button className='btn my-1'>
+            {data && <button className='btn my-1'>
                 <CSVLink data={exportedData} headers={headers} filename='Users.csv'>Export</CSVLink>
-            </button>
+            </button>}
             <input type='text' placeholder='search' value={value} onChange={(e) => onSearch(e.target.value)} />
         </div>
     )
